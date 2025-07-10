@@ -1,69 +1,66 @@
-#This file builds the Docker images for a React/NodeJS application and runs it as microservices on Docker containers
-
-#To ensure successful execution, clone this entire repository and execute this file while in the root folder of the cloned repository
-
-#It's also a requirement to have Docker and the docker-compose plugin installed in your environment
-
-#To launch this app without having to clone the entire repository,use the docker-compose.yaml file to run the app
-
 version: "3.8"
 
 services:
-
-  #Builds the frontend Docker image and creates the frontend microservice
-  brian-yolo-client:
-    image: brianbwire/brian-yolo-client:v1.0.0
-    build: ./client
-    container_name: brian-yolo-client
-    stdin_open: true
-    tty: true
-    ports:
-      - "3000:3000"
-    depends_on: 
-      - brian-yolo-backend
-    networks:
-      - app-net
-
-  #Builds the backend Docker image and creates the backend microservice
-  brian-yolo-backend:
-    image: brianbwire/brian-yolo-backend:v1.0.0
-    build: ./backend
-    container_name: brian-yolo-backend
-    stdin_open: true
-    tty: true
-    restart: always
-    ports:
-      - "5000:5000"
-    depends_on: 
-      - app-ip-mongo
-    networks:
-      - app-net
-
-  #Creates the database microservice
-  app-ip-mongo:
-    image: mongo
+  # MongoDB Database Service
+  app-mongo:
+    image: mongo:7.0
     container_name: app-mongo
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: kaburaricky
+      MONGO_INITDB_ROOT_PASSWORD: ricky2025
+      MONGO_INITDB_DATABASE: RickyCluster
     networks:
-      - app-net
+      - ecommerce-network
     volumes:
-      - type: volume
-        source: app-mongo-data
-        target: /data/db
+      - project-data:/data/db
 
-#Creates the network infrastructure necessary for the containers to communicate with each other
+  # Backend API Service
+  ricky-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: backend-runner
+    image: kenanricky/ricky-ecommerce-backend:v1.0.0
+    container_name: ricky-backend
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      MONGODB_URI: mongodb+srv://kaburaricky:ricky2025@rickycluster.yknl9gf.mongodb.net/?retryWrites=true&w=majority&docker-compose-project=RickyCluster
+    depends_on:
+      - app-mongo
+    networks:
+      - ecommerce-network
+    volumes:
+      - project-data:/backend
+
+  # Frontend Application Service
+  ricky-client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: kenanricky/ricky-ecommerce-frontend:v1.0.0
+    container_name: ricky-client
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+      NODE_ENV: production
+    depends_on:
+      - ricky-backend
+    networks:
+      - ecommerce-network
+    volumes:
+      - project-data:/client
+
+# Network Configuration
 networks:
-  app-net:
-    name: app-net
+  ecommerce-network:
     driver: bridge
-    attachable: true
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16 
-          ip_range: 172.20.0.0/16 
 
-#Creates a Docker volume that persists all the data stored in the database
+# Volume Configuration
 volumes:
-  app-mongo-data:
-    driver: local
+  project-data:
+

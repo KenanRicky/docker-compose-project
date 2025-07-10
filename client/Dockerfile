@@ -1,8 +1,8 @@
 # Use an official Node runtime as a parent image
-FROM node:14-slim AS build
+FROM node:14-slim AS frontend-builder
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
@@ -13,13 +13,19 @@ RUN npm install
 # Copy the rest of the application code to the container
 COPY . .
 
-FROM alpine:3.16.7
+# Build the React application
+RUN npm run build
+
+# Multi-stage build - Production stage
+FROM alpine:3.16.7 AS frontend-runner
 
 WORKDIR /app
 
-RUN apk update && apk add npm
+# Install Node.js and npm
+RUN apk update && apk add --no-cache nodejs npm
 
-COPY --from=build /usr/src/app /app
+# Copy built application from builder stage
+COPY --from=frontend-builder /app /app
 
 # Expose the port the app runs on
 EXPOSE 3000

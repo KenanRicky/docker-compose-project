@@ -1,6 +1,14 @@
 ## Overview
 This repository contains a containerized e-commerce web application, comprising a Node.js backend API, a Single Page Application (SPA) frontend served by Nginx, and a MongoDB database for data storage.
 All components are orchestrated using Docker Compose with multi-stage Dockerfiles for optimized image sizes.
+
+## Content
+[Requirement](#Requirement)
+[Running The Application](#Running-The-Application)
+[Launching The Application](#Launching-The-Application)
+[Uploading the Changes to Github](#Uploading-the-changes-to-Github)
+[Image Versioning](#Image-Versioning)
+
 ## Requirements
 Before you begin, ensure you have the following installed on your system:
 
@@ -49,9 +57,13 @@ iv). git push command
 This command is used to upload local repository content to a remote repository
 <img width="803" height="175" alt="Screenshot from 2025-07-10 18-04-35" src="https://github.com/user-attachments/assets/dc7d698c-8d0b-4168-8135-201c5687370a" />
 
-## Pushing the image to DockerHub
-The Image can be versioned as the current state the pushed to dockerhub using the bellow command
-<img width="1195" height="27" alt="Screenshot from 2025-07-10 20-07-12" src="https://github.com/user-attachments/assets/3d6b3950-f103-442e-96fb-1bee32de8266" />
+## Image Versioning
+Images can be versioned as per the changes made on it then pushed to docker hub repository for access. In this case, the dockerhub images have already defined by;
+image: kenanricky/ricky-ecommerce-backend:v1.0.0
+image: kenanricky/ricky-ecommerce-frontend:v1.0.0
+
+After the images created, they can be pushed to dockerhub using the command "docker push"
+<img width="1494" height="430" alt="Screenshot from 2025-07-10 20-47-33" src="https://github.com/user-attachments/assets/38cb336b-06dd-4547-9dd8-66abb749010e" />
 
 
 

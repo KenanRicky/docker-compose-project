@@ -9,7 +9,7 @@ All components are orchestrated using Docker Compose with multi-stage Dockerfile
 -[Uploading the Changes to Github](#Uploading-the-changes-to-Github/)
 -[Image Versioning](#Image-Versioning/)
 
-## Requirements
+## Requirements.
 Before you begin, ensure you have the following installed on your system:
 
 Git: For cloning the repository.
@@ -20,12 +20,12 @@ Docker Engine & Docker Compose (for Linux): This is essential for building and r
 <img width="1206" height="158" alt="Screenshot from 2025-07-10 16-45-29" src="https://github.com/user-attachments/assets/6106be67-c935-44ff-8b5e-5a56804672a2" />
 
 
-## Getting Started: Running the Application
+## Getting Started: Running the Application.
 Follow these steps to get the entire e-commerce platform up and running locally:
 
 Clone the Repository: Open your terminal or command prompt and clone this repository to your local machine: Screenshot from 2025-07-10 16-43-32 Screenshot from 2025-07-10 16-45-29
 
-## Launching the Application
+## Launching the Application.
 i) Build Images with Docker Compose: 
 Navigate to the root directory of the cloned repository (where docker-compose.yml is located). Then, execute the following command: 
 <img width="885" height="31" alt="Screenshot from 2025-07-10 16-17-02" src="https://github.com/user-attachments/assets/16761c20-7792-4edc-8311-38e3d72b4c07" />
@@ -40,7 +40,7 @@ Use (docker compose down) command to stop containers and to remove containers, n
 <img width="897" height="31" alt="Screenshot from 2025-07-10 16-34-26" src="https://github.com/user-attachments/assets/b210606c-5a7b-44dc-a3e4-500c0c1bbe83" />
 
 
-## Uploading the Changes to Github
+## Uploading the Changes to Github.
 i). git status command 
 This command will display the state of the working directory, showing the adjusted areas within the directory. Screenshot from 2025-07-10 16-45-29
 <img width="894" height="256" alt="Screenshot from 2025-07-10 16-52-41" src="https://github.com/user-attachments/assets/3eb9739d-ad22-446e-af18-d28478900407" />
@@ -57,7 +57,7 @@ iv). git push command
 This command is used to upload local repository content to a remote repository
 <img width="803" height="175" alt="Screenshot from 2025-07-10 18-04-35" src="https://github.com/user-attachments/assets/dc7d698c-8d0b-4168-8135-201c5687370a" />
 
-## Image Versioning
+## Image Versioning.
 Images can be versioned as per the changes made on it then pushed to docker hub repository for access. In this case, the dockerhub images have already defined by;
 image: kenanricky/ricky-ecommerce-backend:v1.0.0
 image: kenanricky/ricky-ecommerce-frontend:v1.0.0

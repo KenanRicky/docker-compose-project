@@ -1,7 +1,7 @@
 # Use an official Node runtime as a parent image
 FROM node:14 AS backend-builder
 
-# Set the working directory in the container
+# Create the working directory in the container
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files to the container

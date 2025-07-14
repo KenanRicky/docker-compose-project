@@ -16,7 +16,7 @@ services:
     volumes:
       - project-data:/data/db
 
-  # Backend API Service
+  # Backend  Service
   ricky-backend:
     build:
       context: ./backend

@@ -1,28 +1,26 @@
-# Use an official Node runtime as a parent image
+# Step 1: Build React app
 FROM node:14-slim AS frontend-build
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
-
-# Install application dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
 COPY . .
+RUN npm run build
 
+# Step 2: Serve it using Nginx
 FROM nginx:alpine
 
-WORKDIR /app
+# Remove default Nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
 
-RUN apk update && apk add npm
+# Copy built React files to Nginx public dir
+COPY --from=frontend-build /app/build /usr/share/nginx/html
 
-COPY --from=frontend-build /app /app
+# Copy a custom Nginx config (optional)
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose the port the app runs on
 EXPOSE 3000
 
-# Define the command to run your app
 CMD ["nginx", "-g", "daemon off;"]

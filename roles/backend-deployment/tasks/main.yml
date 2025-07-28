@@ -1,16 +1,42 @@
 ---
-- name: Pull image from repository
+- name: Pull the image
   docker_image:
-    name: brianbwire/brian-yolo-backend:v1.0.0
+    name: kenanricky/yolo-ecommerce-backend:v1.0.0
     source: pull
+ 
 
 - name: Create Node.js Backend Container
   docker_container:
-    name: brian-yolo-backend
-    image: brianbwire/brian-yolo-backend:v1.0.0
+    name: yolo-backend
+    image: kenanricky/yolo-ecommerce-backend:v1.0.0
     networks:
-      - name: app-net
+      - name: yolo-network
     ports:
       - "5000:5000"
     command: "npm start"
   become: yes
+
+
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+
+- name: Ensure Docker is started and enabled
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Wait for Docker to be ready
+  shell: docker info
+  register: docker_ready
+  retries: 5
+  delay: 3
+  until: docker_ready.rc == 0
+
+- name: Pull the image
+  community.docker.docker_image:
+    name: your-image-name
+    source: pull

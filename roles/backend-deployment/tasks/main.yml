@@ -36,6 +36,8 @@
   until: docker_ready.rc == 0
 
 - name: Pull the image
-  community.docker.docker_image:
-    name: your-image-name
+  docker_image:
+    name: kenanricky/yolo-ecommerce-backend
+    tag: v1.0.0
     source: pull
+

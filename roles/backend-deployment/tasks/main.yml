@@ -3,6 +3,11 @@
   docker_image:
     name: kenanricky/yolo-ecommerce-backend:v1.0.0
     source: pull
+
+- name: Create Docker network
+  community.docker.docker_network:
+    name: yolo-network
+    state: present
  
 
 - name: Create Node.js Backend Container

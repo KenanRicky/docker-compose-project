@@ -1,14 +1,14 @@
 ---
-- name: Run database container_name
+- name: Pull the image
   docker_container:
-    name: app-mongo
-    image: mongod
+    name: frontend_container
+    image: kenanricky/yolo-ecommerce-client:v1.0.0
     ports:
-       - "27017:27017"
+       - "3000:3000"
     volumes:
       - ./app-mongo-data:/data/db
     networks:
-      - name: app-net
+      - name: yolo-network
   tags:
     - database
     - backend

@@ -17,12 +17,6 @@
   become: yes
 
 
-- name: Install Docker
-  apt:
-    name: docker.io
-    state: present
-    update_cache: yes
-
 - name: Ensure Docker is started and enabled
   service:
     name: docker

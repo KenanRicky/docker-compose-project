@@ -81,7 +81,7 @@ After installation, verify that the installation is successful.
 First, access the repository where you'll be working from
 
 # Clone the repository
-git clone https://github.com/your-username/yolo-ecommerce-deployment.git
+[git clone https://github.com/your-username/yolo-ecommerce-deployment.git](https://github.com/KenanRicky/docker-compose-project.git)
 cd yolo-ecommerce-deployment to the working repository
 
 # Boot and Provision the VM

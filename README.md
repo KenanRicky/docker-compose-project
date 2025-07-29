@@ -114,6 +114,15 @@ This is where the defaults are declared
 
 [defaults]
 
-inventory = hosts
-remote_user = vagrant
+inventory = hosts;
+remote_user = vagrant;
 private_key_file = .vagrant/machines/default/virtualbox/private_key
+
+# playbook.yaml
+This is where the commands that are to be executed on the server get declared
+NOTE: The provision must be defined in the vagrant file, by adding the line
+"config.vm.provision "ansible" do |ansible|
+  ansible.playbook = "playbook.yaml
+  end"
+  at the very end.
+

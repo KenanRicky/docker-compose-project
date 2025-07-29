@@ -81,8 +81,9 @@ After installation, verify that the installation is successful.
 First, access the repository where you'll be working from
 
 # Clone the repository
+cd yolo-ecommerce-deployment to the working repository;
 "git clone https://github.com/KenanRicky/docker-compose-project.git"
-cd yolo-ecommerce-deployment to the working repository
+
 
 # Boot and Provision the VM
  Create a vagrant Environment from a Vagrant Box
@@ -94,10 +95,25 @@ cd yolo-ecommerce-deployment to the working repository
  You can verify that the VM is running correctly by SSHing into it.
 
  # Create Ansible Files and Directories
- The files includes:
+ The files include:
  1. ansible.cfg
  2. roles
  3. playbook.yaml
  4. inventory.yaml
- 
+ 5. hosts
 
+Note:
+Ignore the .vagrant directory to avoid looping into it in every provision made
+ 
+## hosts
+This is an inventory where all the VM machines are listed using their IP addresses and other connectivity avenues, like ports.
+127.0.0.1 ansible_port 2222
+
+## ansible.cfg
+This is where the defaults are declared
+
+[defaults]
+
+inventory = hosts
+remote_user = vagrant
+private_key_file = .vagrant/machines/default/virtualbox/private_key

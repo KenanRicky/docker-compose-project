@@ -118,11 +118,21 @@ inventory = hosts;
 remote_user = vagrant;
 private_key_file = .vagrant/machines/default/virtualbox/private_key
 
-# playbook.yaml
+## playbook.yaml
 This is where the commands that are to be executed on the server get declared
-NOTE: The provision must be defined in the vagrant file, by adding the line
+NOTE: The provision must be defined in the vagrant file by adding the line
 "config.vm.provision "ansible" do |ansible|
   ansible.playbook = "playbook.yaml
   end"
   at the very end.
+
+  ## roles
+  This is where related tasks are grouped to ensure good practice.
+  Roles are created using ansible-galaxy.
+  All tasks are defined in the roles
+  docker-installation – Installs Docker and Docker Compose
+  frontend-deployment – Pulls/builds and runs the React frontend container
+  backend-deployment – Pulls/builds and runs the backend Node.js container
+  setup-mongodb - Sets up Mongodb
+  docker-install - Installs Docker to the VM
 

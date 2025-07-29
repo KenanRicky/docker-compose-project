@@ -114,8 +114,8 @@ This is where the defaults are declared.
 
 [defaults]
 
-inventory = hosts.
-remote_user = vagrant.
+inventory = hosts<br/>
+remote_user = vagrant.<br/>
 private_key_file = .vagrant/machines/default/virtualbox/private_key.
 
 ## playbook.yaml
@@ -130,11 +130,11 @@ NOTE: The provision must be defined in the vagrant file by adding the line.<br/>
   This is where related tasks are grouped to ensure good practice.<br/>
   Roles are created using ansible-galaxy.
   All tasks are defined in the roles.
-  docker-installation – Installs Docker and Docker Compose.
-  frontend-deployment – Pulls/builds and runs the React frontend container.
-  backend-deployment – Pulls/builds and runs the backend Node.js container.
-  setup-mongodb - Sets up Mongodb.
-  docker-install - Installs Docker to the VM.
+  docker-installation – Installs Docker and Docker Compose.<br/>
+  frontend-deployment – Pulls/builds and runs the React frontend container.<br/>
+  backend-deployment – Pulls/builds and runs the backend Node.js container.<br/>
+  setup-mongodb - Sets up Mongodb.<br/>
+  docker-install - Installs Docker to the VM.<br/>
 
  # Vagrant Provision
  This is will give the connectivity to the virtual machine.

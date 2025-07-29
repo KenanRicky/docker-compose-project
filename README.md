@@ -81,7 +81,7 @@ After installation, verify that the installation is successful.
 First, access the repository where you'll be working from.
 
 # Clone the repository
-cd yolo-ecommerce-deployment to the working repository.
+cd yolo-ecommerce-deployment to the working repository.\
 "git clone https://github.com/KenanRicky/docker-compose-project.git"
 
 
@@ -103,10 +103,10 @@ cd yolo-ecommerce-deployment to the working repository.
  5. hosts
 
 Note:
-Ignore the .vagrant directory to avoid looping into it in every provision made.
+Ignore the .vagrant directory to avoid looping into it in every provision made.\
  
 ## hosts
-This is an inventory where all the VM machines are listed using their IP addresses and other connectivity avenues, like ports.
+This is an inventory where all the VM machines are listed using their IP addresses and other connectivity avenues, like ports.\
 127.0.0.1 ansible_port 2222
 
 ## ansible.cfg
@@ -119,15 +119,15 @@ remote_user = vagrant.
 private_key_file = .vagrant/machines/default/virtualbox/private_key.
 
 ## playbook.yaml
-This is where the commands that are to be executed on the server get declared.
-NOTE: The provision must be defined in the vagrant file by adding the line.
+This is where the commands that are to be executed on the server get declared.\
+NOTE: The provision must be defined in the vagrant file by adding the line.\
 "config.vm.provision "ansible" do |ansible|
   ansible.playbook = "playbook.yaml
   end"
   at the very end.
 
   ## roles
-  This is where related tasks are grouped to ensure good practice.
+  This is where related tasks are grouped to ensure good practice.\
   Roles are created using ansible-galaxy.
   All tasks are defined in the roles.
   docker-installation – Installs Docker and Docker Compose.

@@ -65,8 +65,8 @@ image: kenanricky/ricky-ecommerce-frontend:v1.0.0
 After the images created, they can be pushed to dockerhub using the command "docker push"
 <img width="1494" height="430" alt="Screenshot from 2025-07-10 20-47-33" src="https://github.com/user-attachments/assets/38cb336b-06dd-4547-9dd8-66abb749010e" />
 
-## Ansible & Vagrant Provision
-# Prerequisites
+# Ansible & Vagrant Provision
+## Prerequisites
 Install the following tools:
 VirtualBox
 Vagrant
@@ -76,7 +76,7 @@ Docker Hub account (for image hosting)
 After installation, verify that the installation is successful.
 
 
-## Procedures
+# Procedures
 
 First, access the repository where you'll be working from
 
@@ -84,7 +84,7 @@ First, access the repository where you'll be working from
 git clone https://github.com/your-username/yolo-ecommerce-deployment.git
 cd yolo-ecommerce-deployment to the working repository
 
-## Boot and Provision the VM
+# Boot and Provision the VM
  Create a vagrant Environment from a Vagrant Box
  In this case, I am using Ubuntu/jammy64 image
  "vagrant box add Ubuntu/jammy64"
@@ -93,7 +93,7 @@ cd yolo-ecommerce-deployment to the working repository
  "Vagrant Up" to start up the Virtual Machine.
  You can verify that the VM is running correctly by SSHing into it.
 
- ## Create Ansible Files and Directories
+ # Create Ansible Files and Directories
  The files includes:
  1. ansible.cfg
  2. roles

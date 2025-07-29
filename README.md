@@ -137,7 +137,9 @@ NOTE: The provision must be defined in the vagrant file by adding the line.<br/>
   docker-install - Installs Docker to the VM.<br/>
 
  # Vagrant Provision
- This is will give the connectivity to the virtual machine.
+ This will give the connectivity to the virtual machine.
 In case of any error,
 You'll be able to provision while debugging until all goes successful!
+<img width="869" height="213" alt="Screenshot from 2025-07-29 12-20-36" src="https://github.com/user-attachments/assets/62e2faca-5b37-48b5-ac6d-966876abbf7e" />
+
 

@@ -81,18 +81,18 @@ After installation, verify that the installation is successful.
 First, access the repository where you'll be working from.
 
 # Clone the repository
-cd yolo-ecommerce-deployment to the working repository.\
+cd yolo-ecommerce-deployment to the working repository.<br/>
 "git clone https://github.com/KenanRicky/docker-compose-project.git"
 
 
 # Boot and Provision the VM
- Create a vagrant Environment from a Vagrant Box.
- In this case, I am using Ubuntu/jammy64 image.
- "vagrant box add Ubuntu/jammy64".
- Run vagrant box list to confirm if the box exists in your VM list.
- Use "vagrant init" to create the environment
- "Vagrant Up" to start up the Virtual Machine.
- You can verify that the VM is running correctly by SSHing into it.
+ Create a vagrant Environment from a Vagrant Box.<br/>
+ In this case, I am using Ubuntu/jammy64 image.<br/>
+ "vagrant box add Ubuntu/jammy64".<br/>
+ Run vagrant box list to confirm if the box exists in your VM list.<br/>
+ Use "vagrant init" to create the environment<br/>
+ "Vagrant Up" to start up the Virtual Machine.<br/>
+ You can verify that the VM is running correctly by SSHing into it.<br/>
 
  # Create Ansible Files and Directories
  The files include:
@@ -103,10 +103,10 @@ cd yolo-ecommerce-deployment to the working repository.\
  5. hosts
 
 Note:
-Ignore the .vagrant directory to avoid looping into it in every provision made.\
+Ignore the .vagrant directory to avoid looping into it in every provision made.<br/>
  
 ## hosts
-This is an inventory where all the VM machines are listed using their IP addresses and other connectivity avenues, like ports.\
+This is an inventory where all the VM machines are listed using their IP addresses and other connectivity avenues, like ports.<br/>
 127.0.0.1 ansible_port 2222
 
 ## ansible.cfg
@@ -119,15 +119,15 @@ remote_user = vagrant.
 private_key_file = .vagrant/machines/default/virtualbox/private_key.
 
 ## playbook.yaml
-This is where the commands that are to be executed on the server get declared.\
-NOTE: The provision must be defined in the vagrant file by adding the line.\
+This is where the commands that are to be executed on the server get declared.<br/>
+NOTE: The provision must be defined in the vagrant file by adding the line.<br/>
 "config.vm.provision "ansible" do |ansible|
   ansible.playbook = "playbook.yaml
   end"
   at the very end.
 
   ## roles
-  This is where related tasks are grouped to ensure good practice.\
+  This is where related tasks are grouped to ensure good practice.<br/>
   Roles are created using ansible-galaxy.
   All tasks are defined in the roles.
   docker-installation – Installs Docker and Docker Compose.

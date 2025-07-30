@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: kenanricky/yolo-ecommerce-frontend:v1.0.0
+          command: ["npm", "start"]  # or use ["yarn", "start"] if applicable
+          ports:
+            - containerPort: 3000
+          
+

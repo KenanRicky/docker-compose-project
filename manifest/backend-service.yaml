@@ -10,3 +10,35 @@ spec:
     - port: 5000
       targetPort: 5000
       nodePort: 30100
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: backend
+spec:
+  serviceName: "backend-service"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: kenanricky/yolo-ecommerce-backend:v1.0.0
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: backend-storage
+              mountPath: /usr/src/app/data
+  volumeClaimTemplates:
+    - metadata:
+        name: backend-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi

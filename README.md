@@ -183,3 +183,14 @@ StatefulSet helps in the management of the stateful applications that require st
 
 ## Add the changes to the github
 After confirmation that all is well, then add the changes to the github with good tracking.
+
+## Confirmations
+You can confirm if the pods created by the deployment is running by usng the command:
+kubectl get pods
+
+
+You can as well confim if the service is created by the command:
+kubectl get service
+
+## Accessing the web
+You can access the web using the external IP created by the service on the url section.

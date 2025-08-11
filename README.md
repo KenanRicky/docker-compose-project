@@ -187,10 +187,12 @@ After confirmation that all is well, then add the changes to the github with goo
 ## Confirmations
 You can confirm if the pods created by the deployment is running by usng the command:
 kubectl get pods
+![alt text](<Screenshot from 2025-08-11 17-01-43.png>)
 
 
 You can as well confim if the service is created by the command:
 kubectl get service
+![alt text](<Screenshot from 2025-08-11 17-02-24.png>)
 
 ## Accessing the web
-You can access the web using the external IP created by the service on the url section.
+You can access the web using the external IP created by the service on the url section. Then you add the port number.

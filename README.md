@@ -143,3 +143,43 @@ You'll be able to provision while debugging until all goes successful!
 <img width="869" height="213" alt="Screenshot from 2025-07-29 12-20-36" src="https://github.com/user-attachments/assets/62e2faca-5b37-48b5-ac6d-966876abbf7e" />
 
 
+# Orchestration with Kubernetes
+## Create a Project
+Create a project in the GKE and name the project.
+
+## Create Cluster
+Then Create a cluster with the appropriate particulars for the project
+
+
+## Clone the REpository
+To clone the repository, first, you have to actvate the terminal to enable you interract with the system.
+From the github account clone the forked repository using the termial activated.
+
+## Adding the Kubernetes Files
+After confirming that the repository has been cloned, Open the code editor to enable you add files.
+Access the correct directory and Create a folder called manifest where all the .yaml files for kubernetes will created.
+
+## Adding Deployment files
+In the manifest folder create both the frontend and backend deployment files.
+The files shoud have the core parts well defined.
+The core parts includes;
+ 1.kind
+ 2. metadata
+ 3. spec
+ 4.status.
+
+After adding the deployment files then apply to make them effective in the cluster.
+the confirm if the cluster content is having the nodes and pods well created and running.
+
+
+## Adding Service Files
+In the manifest folder create both the frontend and backend service files.
+The purpose of the service is to expose the applications as a network service by giving stable IP addresses.
+
+
+## Adding statefulSet
+In the manifest folder create both the frontend and backend statefulset files.
+StatefulSet helps in the management of the stateful applications that require stable persistent storage like databases.
+
+## Add the changes to the github
+After confirmation that all is well, then add the changes to the github with good tracking.
